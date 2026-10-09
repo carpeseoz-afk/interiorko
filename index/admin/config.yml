@@ -1,0 +1,33 @@
+backend:
+  name: git-gateway
+  branch: main
+
+locale: ko
+publish_mode: simple
+
+collections:
+  - name: product_settings
+    label: 상품 관리
+    files:
+      - name: products
+        label: 상품 목록
+        file: content/products.json
+        format: json
+        fields:
+          - label: 상품
+            name: products
+            widget: list
+            summary: "{{fields.name}} · {{fields.category}}"
+            fields:
+              - { label: 상품명, name: name, widget: string }
+              - { label: 한 줄 추천, name: desc, widget: string }
+              - label: 카테고리
+                name: category
+                widget: select
+                options:
+                  - { label: 조명, value: lighting }
+                  - { label: 거울 · 벽, value: mirror }
+                  - { label: 데스크, value: desk }
+                  - { label: 방꾸미기, value: room }
+              - { label: 이미지 URL, name: img, widget: string, hint: "Cloudinary 등 이미지의 https 주소를 붙여 넣으세요." }
+              - { label: 쿠팡 링크, name: link, widget: string, hint: "https://link.coupang.com/ 로 시작하는 링크를 붙여 넣으세요." }

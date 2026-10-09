@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>interiorko | 평범한 방을 더 재미있게</title>
+  <meta name="description" content="평범한 방을 더 재미있게 만드는 취향 좋은 인테리어 아이템을 모았습니다." />
+  <meta name="theme-color" content="#d8ff57" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background: #fff;
+      color: #111;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      padding: 14px 16px 12px;
+      border-bottom: 1px solid #eee;
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: "Times New Roman", "Noto Serif KR", serif;
+      font-size: 22px;
+      letter-spacing: 0.6px;
+      user-select: none;   
+    }
+
+    /* 부드러운 안내형 광고 문구 */
+    .partner-notice {
+  margin-top: 10px;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #555;
+  background: #f7f7f7;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.partner-notice .label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  background: #eaeaea;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-bottom: 6px;
+}
+
+    .search-box {
+      margin-top: 12px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 14px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      outline: none;
+    }
+
+    main {
+      padding: 16px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px 14px;
+    }
+
+    @media (min-width: 768px) {
+      .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .product-card {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #f4f4f4;
+      border-radius: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 55%;
+      height: 55%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .product-text {
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+
+    .product-text p {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .product-text span {
+      font-size: 12px;
+      color: #777;
+    }
+
+    #sentinel {
+      height: 1px;
+    }
+    /* 큐레이션 랜딩 UI */
+    :root { --ink:#172018; --lime:#d8ff57; --paper:#f7f7f2; --line:#e8e8df; }
+    body { background:var(--paper); color:var(--ink); }
+    header { position:static; border:0; padding:18px 16px 0; }
+    .topline { display:flex; align-items:center; justify-content:space-between; }
+    .logo { font:700 25px/1 Georgia,"Noto Serif KR",serif; letter-spacing:-1.3px; }
+    .topline span { font-size:11px; font-weight:700; color:#63705c; }
+    .hero { padding:36px 0 27px; }
+    .eyebrow { display:inline-block; margin-bottom:11px; padding:5px 9px; border-radius:99px; background:var(--lime); font-size:11px; font-weight:800; }
+    h1 { max-width:335px; font-size:30px; line-height:1.18; letter-spacing:-1.8px; }
+    .hero p { margin-top:12px; color:#566052; font-size:14px; line-height:1.55; }
+    .category-bar { display:flex; gap:8px; overflow-x:auto; padding:0 0 18px; scrollbar-width:none; }
+    .category-bar::-webkit-scrollbar { display:none; }
+    .filter { flex:0 0 auto; border:1px solid #d9ddd4; border-radius:999px; background:#fff; padding:9px 13px; color:#465042; font-size:13px; font-weight:700; cursor:pointer; }
+    .filter.active { border-color:var(--ink); background:var(--ink); color:#fff; }
+    .search-box { margin-top:0; padding:0 0 14px; }
+    .search-box input { padding:13px 14px; border-radius:12px; background:#fafaf8; }
+    .partner-notice { margin:0; padding:10px 0 14px; border-top:1px solid var(--line); border-radius:0; background:transparent; color:#798073; font-size:11px; font-weight:400; text-align:left; }
+    .partner-notice .label { display:inline; margin:0 4px 0 0; padding:0; background:transparent; color:#63705c; font-size:11px; }
+    main { max-width:1060px; margin:auto; padding:25px 16px 52px; }
+    .section-heading { display:flex; align-items:end; justify-content:space-between; margin:4px 0 15px; }
+    .section-heading h2 { font-size:18px; letter-spacing:-.8px; }
+    .section-heading span { font-size:12px; color:#74806d; }
+    .featured { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:34px; }
+    .featured-card { position:relative; aspect-ratio:1/1.07; overflow:hidden; border-radius:16px; background:#e7e9df; color:#fff; text-decoration:none; }
+    .featured-card img { width:100%; height:100%; object-fit:cover; transition:transform .2s; }
+    .featured-card::after { content:""; position:absolute; inset:45% 0 0; background:linear-gradient(transparent,rgba(0,0,0,.7)); }
+    .featured-card div { position:absolute; z-index:1; left:12px; right:12px; bottom:12px; font-size:14px; font-weight:800; line-height:1.3; }
+    .featured-card small { display:block; margin-bottom:4px; color:#e2ff8e; font-size:10px; }
+    .product-grid { gap:24px 12px; }
+    .product-image { display:block; background:#e9ebe4; }
+    .product-image img { width:100%; height:100%; object-fit:cover; border-radius:0; }
+    .product-text p { font-weight:800; letter-spacing:-.4px; }
+    .product-text span { display:block; margin-top:3px; color:#6a7365; }
+    .product-text em { display:block; margin-top:7px; color:#3f5631; font-size:11px; font-style:normal; font-weight:800; }
+    @media (min-width:768px) { header { padding-left:32px; padding-right:32px; } .hero { max-width:680px; } h1 { max-width:none; font-size:42px; } main { padding-left:32px; padding-right:32px; } .featured { grid-template-columns:repeat(4,1fr); } .product-grid { grid-template-columns:repeat(4,1fr); gap:30px 18px; } }
+    header { display:flex; flex-direction:column; }
+    .logo { order:1; }
+    .hero { order:2; }
+    .category-bar { order:3; }
+    .search-box { order:4; }
+    .partner-notice { order:5; }
+    .hero h2 { max-width:335px; font-size:30px; line-height:1.18; letter-spacing:-1.8px; }
+    @media (min-width:768px) { .hero h2 { max-width:none; font-size:42px; } }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1 class="logo">interiorko</h1>
+  <div class="hero">
+    <span class="eyebrow">SPACE, BUT MAKE IT YOU</span>
+    <h2>평범한 방을<br>더 재미있게 만드는 아이템</h2>
+    <p>스크롤을 멈추게 했던 취향 좋은 물건들을<br>공간별로 모아두었어요.</p>
+  </div>
+
+  <div class="partner-notice">
+    <div class="label">광고 안내</div><br>
+    이 게시물은 쿠팡 파트너스 활동의 일환으로,<br>
+    이에 따른 일정액의 수수료를 제공받습니다.
+  </div>
+
+  <nav class="category-bar" aria-label="상품 카테고리">
+    <button class="filter active" data-filter="all">전체 보기</button>
+    <button class="filter" data-filter="lighting">조명</button>
+    <button class="filter" data-filter="mirror">거울 · 벽</button>
+    <button class="filter" data-filter="desk">데스크</button>
+    <button class="filter" data-filter="room">방꾸미기</button>
+  </nav>
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="상품 검색" />
+  </div>
+</header>
+
+<main>
+  <section id="featuredSection">
+    <div class="section-heading"><h2>이런 공간, 어때요?</h2><span>취향별 아이템</span></div>
+    <div class="featured" id="featuredGrid"></div>
+  </section>
+  <div class="section-heading"><h2 id="productHeading">모든 아이템</h2><span id="productCount"></span></div>
+  <section class="product-grid" id="productGrid"></section>
+  <div id="sentinel"></div>
+</main>
+
+<script>
+let PRODUCTS = [
+  {
+    name: "볼록 거울",
+    desc: "공간을 넓어 보이게",
+    img: "https://res.cloudinary.com/djc1v8zep/image/upload/w_600,h_600,c_fill,f_auto,q_auto/mirror_tqzrwg",
+    link: "https://link.coupang.com/a/dLoPU3"
+  },
+  {
+    name: "마인크래프트 창문",
+    desc: "게임 같은 방",
+    img: "https://res.cloudinary.com/djc1v8zep/image/upload/v1767431269/minecreaft-window_lrdt1w.jpg",
+    link: "https://link.coupang.com/a/dm3lN1"
+  },
+  {
+    name: "아이팟 거울 1",
+    desc: "거울도 특별하게",
+    img: "https://res.cloudinary.com/djc1v8zep/image/upload/v1767433127/ipod_m2lb6c.jpg",
+    link: "https://link.coupang.com/a/dm3vD0"
+  },
+  {
+    name: "아이팟 거울 2",
+    desc: "거울도 특별하게",
+    img: "https://res.cloudinary.com/djc1v8zep/image/upload/v1767433127/ipod_m2lb6c.jpg",
+    link: "https://link.coupang.com/a/dQoQrj"
+  },
+  {
+    name: "레고헤드 머그컵",
+    desc: "귀엽게 물 마시기",
+    img: "https://res.cloudinary.com/djc1v8zep/image/upload/v1767432860/lego_mugcup_frn7md.jpg",
+    link: "https://link.coupang.com/a/dm3xcM"
+  },
+  {
+    name: "농구 쓰레기통",
+    desc: "쓰레기도 개성있게",
+    img: "https://res.cloudinary.com/djc1v8zep/image/upload/v1767789658/baskettrash_gteojs.jpg",
+    link: "https://link.coupang.com/a/dm4ifZ"
+  },
+  {
+    name: "유리 선반",
+    desc: "미드센츄리",
+    img: "https://res.cloudinary.com/djc1v8zep/image/upload/v1767790073/GlassShelf_k7zc5g.jpg",
+    link: "https://link.coupang.com/a/dm4HfR"
+  },
+  {
+    name: "LP 플레이어",
+    desc: "레트로 맛",
+    img: "https://res.cloudinary.com/djc1v8zep/image/upload/v1767791890/0_u1jf3f.jpg",
+    link: "https://link.coupang.com/a/dm5daA"
+  },
+  {
+    name: "버섯 조명",
+    desc: "은은한 분위기 연출",
+    img: "https://res.cloudinary.com/djc1v8zep/image/upload/v1767790044/mushuroom_ckhuim.jpg",
+    link: "https://link.coupang.com/a/dm5FCn"
+  },
+  {
+    name: "아이러브뉴욕 컵",
+    desc: "컬러: 화이트",
+    img: "https://res.cloudinary.com/djc1v8zep/image/upload/v1767791815/0_uoswcy.jpg",
+    link: "https://link.coupang.com/a/dm5UOy"
+  },
+  {
+    name: "아이러브뉴욕 컵",
+    desc: "컬러: 핑크",
+    img: "https://res.cloudinary.com/djc1v8zep/image/upload/v1767790039/NY_n2l0ue.jpg",
+    link: "https://link.coupang.com/a/dm6bQf"
+  },
+  {
+    name: "그림판 거울",
+    desc: "남다른 외모 점검",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1768480526/0_vdieeo.jpg",
+    link: "https://link.coupang.com/a/dsXaWy"
+  },
+  {
+    name: "아카리 조명",
+    desc: "감도 높은 조명",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1768480520/0_osz2p6.jpg",
+    link: "https://link.coupang.com/a/dsXcYe"
+  },
+  {
+    name: "링어데이트 달력",
+    desc: "아날로그의 매력",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1768480514/0_d4t0iv.jpg",
+    link: "https://link.coupang.com/a/dsXfXe"
+  },
+  {
+    name: "페이지 탁상시계",
+    desc: "개성있게 시간 확인",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1768480516/0_y7657a.jpg",
+    link: "https://link.coupang.com/a/dsXh61"
+  },
+  {
+    name: "마이크 샤워기",
+    desc: "화장실 = 무대",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1768480521/0_o2mims.jpg",
+    link: "https://link.coupang.com/a/dsXkbt"
+  },
+  {
+    name: "도넛 벽조명",
+    desc: "달콤한 분위기",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1768486964/0_wgexq9.jpg",
+    link: "https://link.coupang.com/a/ds12EG"
+  },
+  {
+    name: "캔들워머 조명",
+    desc: "빈티지 + 미드센츄리",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1768486961/0_tdqktf.jpg",
+    link: "https://link.coupang.com/a/ds13SU"
+  },
+  {
+    name: "애플스탠드 조명",
+    desc: "상큼한 분위기",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1768486958/0_lgbdfh.jpg",
+    link: "https://link.coupang.com/a/ds146n"
+  },
+  {
+    name: "마카롱 조명",
+    desc: "달달한 분위기",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1768486931/0_brdedz.jpg",
+    link: "https://link.coupang.com/a/ds15VP"
+  },
+  {
+    name: "아카리 조명 (천장)",
+    desc: "아카리 조명 - 천장",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1768486928/0_ugmi9r.jpg",
+    link: "https://link.coupang.com/a/ds16TN"
+  },
+  {
+    name: "빈티지 스탠드 조명",
+    desc: "빈티지한 느낌 물씬",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1768486924/0_agolcs.jpg",
+    link: "https://link.coupang.com/a/ds2ate1"
+  },
+  {
+    name: "버섯 조명",
+    desc: "방 감도 높이기",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1768486922/0_nyrw7m.jpg",
+    link: "https://link.coupang.com/a/ds2bhl"
+  },
+  {
+    name: "매탈 스탠딩 조명",
+    desc: "담백한 분위기 연출",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1768486918/0_eolghu.jpg",
+    link: "https://link.coupang.com/a/ds2b5l"
+  },
+  {
+    name: "모서리 시계",
+    desc: "애매한 공간 활용",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1768919369/0_suyyjm.jpg",
+    link: "https://link.coupang.com/a/dwnxjq"
+  },
+  {
+    name: "체크 러그",
+    desc: "빈티지 공간 만들기",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1768919371/0_vhebmh.jpg",
+    link: "https://link.coupang.com/a/dwnwIP"
+  },
+  {
+    name: "8볼 러그",
+    desc: "힙한 공간 만들기",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1768919372/0_khmllc.jpg",
+    link: "https://link.coupang.com/a/dwnvSj"
+  },
+  {
+    name: "프루티거에어로 어항",
+    desc: "프루티거에어로 최고 아이템",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1768919375/0_z4kqj7.jpg",
+    link: "https://link.coupang.com/a/dwnuXb"
+  },
+  {
+    name: "감성 엽서",
+    desc: "느좋",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1768920656/unnamed_g6mrvu.jpg",
+    link: "https://link.coupang.com/a/dwntQJ"
+  },
+  {
+    name: "프루티거에어로 마우스",
+    desc: "흔한 마우스가 싫다면",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1768919382/0_vmam73.jpg",
+    link: "https://link.coupang.com/a/dwnsIr"
+  },
+  {
+    name: "아이콘 체어",
+    desc: "감도있는 의자",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1768919385/0_pssknr.jpg",
+    link: "https://link.coupang.com/a/dwnrcA"
+  },
+  {
+    name: "프루티거에어로 스티커",
+    desc: "저렴하게 프루티거에어로",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1768919387/0_un7twh.jpg",
+    link: "https://link.coupang.com/a/dwnoZi"
+  },
+  {
+    name: "인형그물",
+    desc: "집에 인형이 넘쳐난다면",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1769091102/0_dwwne4.jpg",
+    link: "https://link.coupang.com/a/dxKGmj"
+  },
+  {
+    name: "포켓몬 러그",
+    desc: "힙하게 귀엽기",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1769091103/0_jxfkdg.jpg",
+    link: "https://link.coupang.com/a/dxKHhh"
+  },
+  {
+    name: "거대 빈백",
+    desc: "구름위에 눕다",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1769091116/0_dhkjly.jpg",
+    link: "https://link.coupang.com/a/dxKH7G"
+  },
+  {
+    name: "마크램프",
+    desc: "귀엽게 방 밝히기",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1769091111/0_qyrw2t.jpg",
+    link: "https://link.coupang.com/a/dxKI3F"
+  },
+  {
+    name: "살바도르달리 시계",
+    desc: "개성있게 시간보기",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1769091130/0_iykgjj.jpg",
+    link: "https://link.coupang.com/a/dxKJMW"
+  },
+  {
+    name: "라바램프",
+    desc: "화학적으로 방 밝히기",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1769091145/0_vl9cyj.jpg",
+    link: "https://link.coupang.com/a/dxKKoe"
+  },
+  {
+    name: "open 네온사인",
+    desc: "시티감성 추가",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1769091150/0_roitaq.jpg",
+    link: "https://link.coupang.com/a/dxKLlD"
+  },
+  {
+    name: "앰프 키꽂이",
+    desc: "항상 음악과 함께하고 싶다면",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1769521448/0_eo9xbv.jpg",
+    link: "https://link.coupang.com/a/fsHeubb4zk"
+  },
+  {
+    name: "우노러그",
+    desc: "귀여움 한 스푼",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1769521446/0_nhapfh.jpg",
+    link: "https://link.coupang.com/a/dAUKay"
+  },
+  {
+    name: "레고 헤드폰 거치대",
+    desc: "귀엽지만 감각있게",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1769521455/0_ge9ryq.jpg",
+    link: "https://link.coupang.com/a/dAUOyA"
+  },
+  {
+    name: "일본 레트로 엽서",
+    desc: "90년대 일본 느낌",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1769521463/unnamed_rm7lem.jpg",
+    link: "https://link.coupang.com/a/dAUR3Z"
+  },
+  {
+    name: "포토존 레트로 티비",
+    desc: "포토존 기능 포함",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1769691214/0_ibiblx.jpg",
+    link: "https://link.coupang.com/a/dCbxLa"
+  },
+  {
+    name: "마크 표지판",
+    desc: "귀엽게 방에 걸어놓자",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1769691141/unnamed_ndw7le.jpg",
+    link: "https://link.coupang.com/a/dCbHsm"
+  },
+  {
+    name: "레고 꽃다발",
+    desc: "큐티 + 로멘틱",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1769691133/0_yergvg.jpg",
+    link: "https://link.coupang.com/a/dCbMu7"
+  },
+  {
+    name: "무라카미 러그",
+    desc: "감각있는 러그",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1769691125/0_ahq3ra.jpg",
+    link: "https://link.coupang.com/a/dCbOI0"
+  },
+  {
+    name: "선셋 조명",
+    desc: "저렴하게 분위기 내기",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1769691118/0_ryirkn.jpg",
+    link: "https://link.coupang.com/a/dCbRmx"
+  },
+  {
+    name: "모니터 조명",
+    desc: "장시간 게임을 위해서",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1770130883/0_dqq5ll.jpg",
+    link: "https://link.coupang.com/a/dFxQeA"
+  },
+  {
+    name: "픽셀아트 스피커",
+    desc: "게이밍 데스크업 귀여움 추가",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1770131019/0_whuvxq.jpg",
+    link: "https://link.coupang.com/a/dFxRkO"
+  },
+  {
+    name: "픽셀아트 데스크보드",
+    desc: "게이밍 데스크업 힙함 추가",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1770131024/0_ejfcxo.jpg",
+    link: "https://link.coupang.com/a/dFxTOG"
+  },
+  {
+    name: "HM LAB",
+    desc: "충전기도 개성있게",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1770131031/0_wl7khp.jpg",
+    link: "https://link.coupang.com/a/dFxV7H"
+  },
+  {
+    name: "레고 테크닉 자동차 액자",
+    desc: "벽을 더 감도있게",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1770131034/0_z8duvh.jpg",
+    link: "https://link.coupang.com/a/dFxYSi"
+  },
+  {
+    name: "벌집 조명",
+    desc: "게이머 분위기 상승",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1770131015/0_bspf1d.jpg",
+    link: "https://link.coupang.com/a/dFx05p"
+  },
+  {
+    name: "조화 화분",
+    desc: "물 안줘도 됨",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1770131022/0_is4fjd.jpg",
+    link: "https://link.coupang.com/a/dFx4OH"
+  },
+  {
+    name: "파도 러그",
+    desc: "생기를 더해주는 러그",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1770638798/0_mggmgj.jpg",
+    link: "https://link.coupang.com/a/dJfRUu"
+  },
+  {
+    name: "뉴에이지 알람시계",
+    desc: "레트로 + 모던",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1770638817/0_gshabu.jpg",
+    link: "https://link.coupang.com/a/dJf07a"
+  },
+  {
+    name: "모아이 티슈 케이스",
+    desc: "개성있게 티슈 쓰기",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1770638808/0_uezxet.jpg",
+    link: "https://link.coupang.com/a/dJf3A9"
+  },
+  {
+    name: "돈다발 테이블",
+    desc: "집게사장 전용",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1770638807/0_e8kjg2.jpg",
+    link: "https://link.coupang.com/a/dJf7kF"
+  },
+  {
+    name: "대포 가습기",
+    desc: "평범한 가습기가 싫다면",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1770638802/0_npjaoe.jpg",
+    link: "https://link.coupang.com/a/dJf800"
+  },
+  {
+    name: "농구공 쿠션",
+    desc: "농구를 좋아한다면",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1770906924/0_lz0njd.jpg",
+    link: "https://link.coupang.com/a/dLoz8Q"
+  },
+  {
+    name: "스파이더맨 러그",
+    desc: "방을 더 색감있게",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1770906930/0_clvzxv.jpg",
+    link: "https://link.coupang.com/a/dLoIH4"
+  },
+  {
+    name: "스타워즈 거치대",
+    desc: "게임기, 핸드폰 거치 가능",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1770906932/0_ahjyan.jpg",
+    link: "https://link.coupang.com/a/dLoL8L"
+  },
+  {
+    name: "앰프 피크 케이스",
+    desc: "피크 자주 잃어버리는 당신에게",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1771678632/0_ehxhro.jpg",
+    link: "https://link.coupang.com/a/dQo5Ov"
+  },
+  {
+    name: "간편 기타 홀더",
+    desc: "어디서든 사용 가능한 기타홀더",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1771678631/0_ufhz5g.jpg",
+    link: "https://link.coupang.com/a/dQpa9X"
+  },
+  {
+    name: "원터치 코더",
+    desc: "굳은 살 이제 그만",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1771678626/0_ciodjw.jpg",
+    link: "https://link.coupang.com/a/dQpdqx"
+  },
+  {
+    name: "LED 피크",
+    desc: "관종 기타리스트를 위한",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1771678621/0_cdk6g0.jpg",
+    link: "https://link.coupang.com/a/dQph61"
+  },
+  {
+    name: "기타 러그",
+    desc: "기요미 기타리스트를 위한",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1771678614/unnamed_uqmkba.jpg",
+    link: "https://link.coupang.com/a/dQpjYV"
+  },
+  {
+    name: "애벌레 아카리 조명",
+    desc: "귀여운 쉐입의 아카리 조명",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1783240243/unnamed_vnbo8y.jpg",
+    link: "https://link.coupang.com/a/e8qBgsz5lA"
+  },
+  {
+    name: "피크 메이커",
+    desc: "뭐든지 피크로 만들테다",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1784301262/0_hsg9ss.jpg",
+    link: "https://link.coupang.com/a/fsN1UM74gK"
+  },
+  {
+    name: "발로란트 키캡 (레이나)",
+    desc: "키보드 바꿀 필요 없이, 캡만 바꿔서",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1785856799/0_s9lvca.jpg",
+    link: "https://link.coupang.com/a/fWGU7OyupU"
+  },
+  {
+    name: "발로란트 키캡 (사이퍼)",
+    desc: "키보드 바꿀 필요 없이, 캡만 바꿔서",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1785856791/0_ijveeh.jpg",
+    link: "https://link.coupang.com/a/fWGXKRTHki"
+  },
+  {
+    name: "발로란트 키캡 (피닉스)",
+    desc: "키보드 바꿀 필요 없이, 캡만 바꿔서",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1785856795/0_pmjyla.jpg",
+    link: "https://link.coupang.com/a/fWG0ZjrmHQ"
+  },
+  {
+    name: "발로란트 키캡 (아이소)",
+    desc: "키보드 바꿀 필요 없이, 캡만 바꿔서",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1785856809/0_glv34a.jpg",
+    link: "https://link.coupang.com/a/fWG3ZV2SBM"
+  },
+  {
+    name: "발로란트 키캡 (네온)",
+    desc: "키보드 바꿀 필요 없이, 캡만 바꿔서",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1785856815/0_mtppnl.jpg",
+    link: "https://link.coupang.com/a/fWG6Ho4vL2"
+  },
+  {
+    name: "발로란트 키캡 (제트)",
+    desc: "키보드 바꿀 필요 없이, 캡만 바꿔서",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1785856820/0_ggrchb.jpg",
+    link: "https://link.coupang.com/a/fWHayPKeXI"
+  },
+  {
+    name: "발로란트 키캡 (세이지)",
+    desc: "키보드 바꿀 필요 없이, 캡만 바꿔서",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1785856825/0_tvejo0.jpg",
+    link: "https://link.coupang.com/a/fWHdx1cSSi"
+  },
+  {
+    name: "발로란트 키캡 (요루)",
+    desc: "키보드 바꿀 필요 없이, 캡만 바꿔서",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1785856829/0_gbmxnt.jpg",
+    link: "https://link.coupang.com/a/fWHfPBVcDA"
+  },
+  {
+    name: "발로란트 키캡 (체임버))",
+    desc: "키보드 바꿀 필요 없이, 캡만 바꿔서",
+    img: "https://res.cloudinary.com/dpiw0nemh/image/upload/v1785857484/0_uhujpy.jpg",
+    link: "https://link.coupang.com/a/fWHIpNPgNU"
+  }
+];
+
+const grid = document.getElementById("productGrid");
+const sentinel = document.getElementById("sentinel");
+const searchInput = document.getElementById("searchInput");
+const featuredGrid = document.getElementById("featuredGrid");
+const featuredSection = document.getElementById("featuredSection");
+const productHeading = document.getElementById("productHeading");
+const productCount = document.getElementById("productCount");
+const filterButtons = document.querySelectorAll(".filter");
+
+const ITEMS_PER_LOAD = 12;
+let currentIndex = 0;
+let filteredProducts = [];
+let selectedFilter = "all";
+
+function categoryOf(product) {
+  if (["lighting", "mirror", "desk", "room"].includes(product.category)) return product.category;
+  const text = `${product.name} ${product.desc}`;
+  if (/조명|램프|스탠드|무드등|전구/.test(text)) return "lighting";
+  if (/거울|시계|벽|포스터|사인/.test(text)) return "mirror";
+  if (/키보드|마우스|스피커|LP|데스크|체어|피규어/.test(text)) return "desk";
+  return "room";
+}
+
+function renderFeatured() {
+  const collections = [
+    { label: "WARM LIGHT", title: "조명 하나로 달라지는 밤", category: "lighting" },
+    { label: "WALL MOOD", title: "벽부터 채우는 나만의 취향", category: "mirror" },
+    { label: "DESK SETUP", title: "앉고 싶은 책상 만들기", category: "desk" },
+    { label: "ROOM POINT", title: "방의 분위기를 바꾸는 한 끗", category: "room" }
+  ];
+  featuredGrid.innerHTML = "";
+  collections.forEach(collection => {
+    const product = PRODUCTS.find(item => categoryOf(item) === collection.category);
+    if (!product) return;
+    const card = document.createElement("a");
+    card.className = "featured-card";
+    card.href = "#productGrid";
+    card.innerHTML = `<img src="${product.img}" loading="lazy" alt="${collection.title}"><div><small>${collection.label}</small>${collection.title}</div>`;
+    card.addEventListener("click", () => setFilter(collection.category));
+    featuredGrid.appendChild(card);
+  });
+}
+
+function renderItems() {
+  const items = filteredProducts.slice(currentIndex, currentIndex + ITEMS_PER_LOAD);
+
+  items.forEach(p => {
+    const card = document.createElement("a");
+    card.className = "product-card";
+    card.href = p.link;
+    card.target = "_blank";
+    card.rel = "noopener noreferrer";
+
+    card.innerHTML = `
+      <div class="product-image">
+        <img src="${p.img}" loading="lazy" alt="${p.name}">
+      </div>
+      <div class="product-text">
+        <p>${p.name}</p>
+        <span>${p.desc}</span>
+        <em>쿠팡에서 아이템 보기 →</em>
+      </div>
+    `;
+
+    grid.appendChild(card);
+  });
+
+  currentIndex += ITEMS_PER_LOAD;
+}
+
+const observer = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting && currentIndex < filteredProducts.length) {
+    renderItems();
+  }
+});
+
+observer.observe(sentinel);
+
+function setFilter(filter = selectedFilter) {
+  selectedFilter = filter;
+  const keyword = searchInput.value.trim().toLowerCase();
+  filteredProducts = PRODUCTS.filter(product => {
+    const matchesCategory = filter === "all" || categoryOf(product) === filter;
+    const matchesSearch = !keyword || `${product.name} ${product.desc}`.toLowerCase().includes(keyword);
+    return matchesCategory && matchesSearch;
+  });
+  grid.innerHTML = "";
+  currentIndex = 0;
+  renderItems();
+  productCount.textContent = `${filteredProducts.length} items`;
+  productHeading.textContent = filter === "all" ? "모든 아이템" : document.querySelector(`.filter[data-filter="${filter}"]`).textContent;
+  featuredSection.hidden = filter !== "all" || Boolean(keyword);
+  filterButtons.forEach(button => button.classList.toggle("active", button.dataset.filter === filter));
+}
+
+filterButtons.forEach(button => button.addEventListener("click", () => setFilter(button.dataset.filter)));
+searchInput.addEventListener("input", () => setFilter());
+
+async function startStore() {
+  try {
+    const response = await fetch("/content/products.json");
+    if (!response.ok) throw new Error("상품 데이터 요청 실패");
+    const data = await response.json();
+    const managedProducts = Array.isArray(data.products) ? data.products : [];
+    PRODUCTS = [...managedProducts, ...PRODUCTS];
+  } catch (error) {
+    console.warn("관리자 상품을 불러오지 못해 기본 상품만 표시합니다.", error);
+  }
+  renderFeatured();
+  setFilter();
+}
+
+startStore();
+</script>
+
+</body>
+</html>
